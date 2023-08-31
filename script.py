@@ -1,16 +1,16 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
 import time
 
 website = 'https://eduadvance.net'
-# location = 'C:\Development\msedgedriver.exe'
 
 driver = webdriver.Edge()
 driver.get(website)
 
-# element = driver.find_element(By.ID, 'sb_form_q')
-# element.send_keys('WebDriver')
-# element.submit()
+footer = driver.find_element(By.XPATH, "/html/body/div[6]/div[3]/div/div/div/div[2]/div/div/div/div[2]")
+# delta_y = footer.rect['50']
+ActionChains(driver).scroll_by_amount(0, 5000).perform()
 
 time.sleep(10)
 driver.quit()
